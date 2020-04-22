@@ -1,13 +1,45 @@
 import React ,{Component} from 'react'
 import '../../assests/css/login.less'
+import logo from '../../assests/images/logo.png'
 
 export default class Login extends Component{
-
+    state = {
+        username:'',
+        password:''
+    }
+    userChange = (e) => {
+        const username = e.target.value
+        this.setState({username})
+        // console.log(name,value)
+    }
+    passChange = (e) => {
+        const password = e.target.value
+        this.setState({password})
+        // console.log(name,value)
+    }
+    submit = () => {
+        console.log(this.state)
+    }
     render(){
         return(
             <div className='container login-body'>
                 <div className='login-header'>
-                    
+                    <img src={logo} alt="logo" className='logo-img'></img>
+                    <div className='login-font'><h1 className='logo-title'>React项目:后台管理系统</h1></div>
+                </div>
+                <div className='login-container'>
+                    <div className='login-card'>
+                        <h2>用户登录</h2>
+                        <div className='login-input'>
+                            <div className="form-group">
+                                <input type="text" className="form-control" id="exampleInputEmail1" placeholder='输入用户名' onChange = {this.userChange}/>
+                            </div>
+                            <div className="form-group">
+                                <input type="password" className="form-control" id="exampleInputPassword1"  placeholder='输入登录密码' onChange = {this.passChange}/>
+                            </div>
+                            <button type="submit" className="btn btn-success btn-block" onClick={this.submit}>登录</button>
+                        </div>
+                    </div>
                 </div>
             </div>
         )
