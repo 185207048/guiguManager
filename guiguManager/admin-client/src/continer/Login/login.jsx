@@ -1,8 +1,10 @@
 import React ,{Component} from 'react'
 import '../../assests/css/login.less'
 import logo from '../../assests/images/logo.png'
+import {connect} from 'react-redux'
+import {getSuccess} from '../../redux/actions'
 
-export default class Login extends Component{
+class Login extends Component{
     state = {
         username:'',
         password:''
@@ -18,7 +20,9 @@ export default class Login extends Component{
         // console.log(name,value)
     }
     submit = () => {
-        console.log(this.state)
+        // console.log(this.state)
+        const {username,password} = this.state
+        this.props.getSuccess({username,password})
     }
     render(){
         return(
@@ -45,3 +49,5 @@ export default class Login extends Component{
         )
     }
 }
+
+export default connect(state => ({user:state.user}),{getSuccess})(Login)
