@@ -3,6 +3,7 @@ import '../../assests/css/login.less'
 import logo from '../../assests/images/logo.png'
 import {connect} from 'react-redux'
 import {login} from '../../redux/actions'
+import {Redirect} from 'react-router-dom'
 
 class Login extends Component{
     state = {
@@ -23,8 +24,15 @@ class Login extends Component{
         // console.log(this.state)
         const {username,password} = this.state
         this.props.login({username,password})
+        // console.log(this.props.user)
+        
     }
+    
     render(){
+        const username_p = this.props.user.username
+        if(username_p){
+            return <Redirect to="./"></Redirect>
+        }
         return(
             <div className='container login-body'>
                 <div className='login-header'>

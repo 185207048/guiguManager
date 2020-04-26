@@ -18,8 +18,10 @@ export const login= (user) =>{
     return async dispatch => {
         const response = await relogin(user);
         const result = response.data;
+        // console.log(result)
         if(result.code === 0 ){
-            dispatch(getSuccess(result.data));
+            // console.log(result.data)
+            dispatch(getSuccess(result.data[0]));
         }else{
             dispatch(errorMsg(result.msg));
         }

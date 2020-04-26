@@ -1,8 +1,10 @@
 import { combineReducers } from 'redux'
 import {GET_SUCCESS,ERROR_MSG} from './actions-type'
 const inituser = {
+    _id:'',
     username:'',
     type:'',
+    header:'',
     errormsg:''  //错误提示
 }
 

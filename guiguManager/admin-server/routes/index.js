@@ -26,7 +26,8 @@ router.post('/register',function(req,res){
   const {username,password,type,header} = req.body
   console.log( {username,password,type,header} )
   MangModel.find({username,password:md5(password)},filter,function(err,user){
-    if(user){
+    if(user.username){
+      console.log( user.username)
       res.send({code:1,msg:'此用户已存在'});
     }else{
       new MangModel({username,password:md5(password),type,header}).save(function(err,user){
