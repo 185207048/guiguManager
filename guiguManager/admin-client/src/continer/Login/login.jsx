@@ -30,9 +30,11 @@ class Login extends Component{
     
     render(){
         const username_p = this.props.user.username
+        const errmsg = this.props.user.errormsg
         if(username_p){
-            return <Redirect to="./"></Redirect>
+            return <Redirect to="./admin"></Redirect>
         }
+       
         return(
             <div className='container login-body'>
                 <div className='login-header'>
@@ -48,6 +50,11 @@ class Login extends Component{
                             </div>
                             <div className="form-group">
                                 <input type="password" className="form-control" id="exampleInputPassword1"  placeholder='输入登录密码' onChange = {this.passChange}/>
+                            </div>
+                            <div>
+                                {
+                                     errmsg ? <div className="alert alert-danger" role="alert">{errmsg}</div> : null
+                                }
                             </div>
                             <button type="submit" className="btn btn-success btn-block" onClick={this.submit}>登录</button>
                         </div>

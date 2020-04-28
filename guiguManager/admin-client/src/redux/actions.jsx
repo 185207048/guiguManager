@@ -8,11 +8,12 @@ export const getSuccess = (user) => ({type:GET_SUCCESS,data:user});//登录函�
 // 异步请求
 export const login= (user) =>{
     const {username,password} = user;
-    if(!username || !password){
-        errorMsg('账号名或密码不能为空');
+    console.log()
+    if(username === '' || password  === ''){
+        return errorMsg('账号名或密码不能为空');
     }
-    if(username.length < 6 || password.length < 6){
-        errorMsg('用户名或密码长度不够');
+    if(username.length < 4 || password.length < 4){
+        return errorMsg('用户名或密码长度不够');
     }
 
     return async dispatch => {
