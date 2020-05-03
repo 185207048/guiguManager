@@ -104,8 +104,8 @@ export default class ShopShow extends Component{
         return(
             <div>
                 <div className="show-update">
-                    <button className='btn btn-outline-success' onClick={this.updatebtn}>&nbsp;&nbsp;修改&nbsp;&nbsp;</button>
-                    <button className='btn btn-outline-success' onClick={this.deletebtn}>&nbsp;&nbsp;删除&nbsp;&nbsp;</button>
+                    <button className='btn btn-outline-success btn-self' onClick={this.updatebtn}>&nbsp;&nbsp;修改&nbsp;&nbsp;</button>
+                    <button className='btn btn-outline-success btn-self' onClick={this.deletebtn}>&nbsp;&nbsp;删除&nbsp;&nbsp;</button>
                 </div>
                 <table className="table">
                     <thead>
@@ -135,7 +135,7 @@ export default class ShopShow extends Component{
                 </table>
                 
                 <div className='btn-update' hidden={ flag_u}>
-                    <div className='container'>
+                    <div className='container form-container'>
                         <select className="form-control form-select" onChange={this.selectid}>
                             {
                                 shoplist.map(shop=>{
@@ -146,8 +146,8 @@ export default class ShopShow extends Component{
                             }
                            
                         </select>
-                        <div><input type="text" className='form-control' placeholder='商品名称' value={shopname} onChange={this.updatename }/></div>
-                        <div><input type="text" className='form-control' placeholder='商品价格' value={shopcost} onChange={this.updatecost}/></div>
+                        <div><input type="text" className='form-control form-control-self' placeholder='商品名称' value={shopname} onChange={this.updatename }/></div>
+                        <div><input type="text" className='form-control form-control-self' placeholder='商品价格' value={shopcost} onChange={this.updatecost}/></div>
                         <div className="form-group">
                             <input type="file" className="form-control-file" id="exampleFormControlFile1" ref='files' accept="image/jpeg,image/x-png" onChange={this.updateShopImg}/>
                         </div>
@@ -167,8 +167,8 @@ export default class ShopShow extends Component{
                             }
                            
                         </select>
-                        <div><input type="text" className='form-control' placeholder='商品名称' value={shopname}/></div>
-                        <div><input type="text" className='form-control' placeholder='商品价格' value={shopcost}/></div>
+                        <div><input type="text" className='form-control form-select form-control-self' placeholder='商品名称' value={shopname}/></div>
+                        <div><input type="text" className='form-control form-select form-control-self' placeholder='商品价格' value={shopcost}/></div>
                         <div>
                             <img src='' alt="宣传图片"/>
                         </div>

@@ -5,19 +5,17 @@ import {Switch, Route, Redirect} from 'react-router-dom'
 import ShopAd from '../View/shopAd'
 import ShopAdd from '../View/shopAdd'
 import ShopShow from '../View/shopShow'
+import Time from '../../component/time'
 
 export default class Shop extends Component{
+
 
     render(){
         return(
             <div className = 'shop'>
                 <div className='shop-head'>
                     <div className='shop-title'>商品管理</div>
-                    <div className='shop-ti'>
-                        <div className='shop-time'>2019-5-14</div>
-                        <div className='shop-time'>07:02:56</div>
-                        <div className='shop-time'>晴</div>
-                    </div>
+                   <Time></Time>
                 </div>
                 <div className='shop-body'>
                     <div className='shop-main'>
