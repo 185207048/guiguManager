@@ -18,3 +18,16 @@ const mangSchema = mongoose.Schema({
 const MangModel = mongoose.model('user',mangSchema);
 exports.MangModel = MangModel;
 
+//  商品表
+const shopSchema = mongoose.Schema({
+    shopname:{type:String, require:true}, //商品名
+    shopcost:{type:String, require:true}, //商品价格
+    shopbrief:{type:String, require:true}, //商品简介
+    shopimg:{type:String}, //商品图片
+    shoporder:{type:String, require:true} //商品数量
+})
+const ShopModel = mongoose.model('shop',shopSchema);
+exports.ShopModel = ShopModel;
+
+
+

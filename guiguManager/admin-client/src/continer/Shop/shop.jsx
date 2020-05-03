@@ -1,5 +1,10 @@
 import React ,{Component} from 'react'
 import '../../assests/css/shop.less'
+import MyNavLink from '../MyNavLink/myNavLink'
+import {Switch, Route, Redirect} from 'react-router-dom'
+import ShopAd from '../View/shopAd'
+import ShopAdd from '../View/shopAdd'
+import ShopShow from '../View/shopShow'
 
 export default class Shop extends Component{
 
@@ -32,6 +37,24 @@ export default class Shop extends Component{
                                     增加
                                     ID     名字     图片       简介     价格        修改        删除
                             */}
+                            <div className='shop-item-body'>
+                                <div className='shop-add'>
+                                    <ul className="nav nav-tabs">
+                                        <li className="shop-li"><MyNavLink to='/admin/shop/shopad'>商品</MyNavLink></li>
+                                        <li className="shop-li"><MyNavLink to='/admin/shop/shopshow'>查看商品</MyNavLink></li>
+                                        <li className="shop-li"><MyNavLink to='/admin/shop/shopadd'>添加商品</MyNavLink></li>
+                                    </ul>
+                                </div>
+                                <div className='shop-contain'>
+                                <Switch>
+                                    <Route path='/admin/shop/shopad' component={ShopAd}/>
+                                    <Route path='/admin/shop/shopshow' component={ShopShow}/>
+                                    <Route path='/admin/shop/shopadd' component={ShopAdd}/>
+                                    <Redirect to='/admin/shop/shopad'></Redirect>
+                                </Switch>
+                            </div>
+                            </div>
+                            
                         </div>
                     </div>
                 </div>
