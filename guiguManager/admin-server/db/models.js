@@ -29,5 +29,14 @@ const shopSchema = mongoose.Schema({
 const ShopModel = mongoose.model('shop',shopSchema);
 exports.ShopModel = ShopModel;
 
-
+//  用户表
+const customerSchema = mongoose.Schema({
+    customername: {type: String, required: true}, // 用户名
+    password: {type: String, required: true}, // 密码
+    customercon: {type: String}, // 用户购买的内容
+    customerphone: {type: String}, // 用户联系方式
+    header: {type: String}, // 头像名称 --> 上传
+})
+const CustomerModel = mongoose.model('customer', customerSchema);
+exports.CustomerModel = CustomerModel;
 

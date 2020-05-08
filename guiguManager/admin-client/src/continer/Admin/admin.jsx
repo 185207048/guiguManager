@@ -8,7 +8,7 @@ import Chart from '../Chart/chart'
 import Pages from '../Pages/pages'
 import Roles from '../Roles/roles'
 import Shop from '../Shop/shop'
-import User from '../User/user'
+import Customer from '../Customer/customer'
 
 export default class Admin extends Component{
 
@@ -41,7 +41,7 @@ export default class Admin extends Component{
                     <Switch>
                         <Route path='/admin/pages' component={Pages}></Route>
                         <Route path='/admin/shop' component={Shop}></Route>
-                        <Route path='/admin/user' component={User}></Route>
+                        <Route path='/admin/user' component={Customer}></Route>
                         <Route path='/admin/roles' component={Roles}></Route>
                         <Route path='/admin/chart' component={Chart}></Route>
                         <Redirect to='/admin/pages'></Redirect>

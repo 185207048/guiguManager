@@ -1,7 +1,7 @@
 var express = require('express');
 var router = express.Router();
 var md5 = require('blueimp-md5');
-const {MangModel,ShopModel} = require('../db/models');
+const {MangModel,ShopModel,CustomerModel} = require('../db/models');
 const filter = {password:0} ; //指定过滤
 
 router.get('/', function(req, res, next) {
@@ -78,6 +78,18 @@ router.post('/updateshop', function(req,res){
   console.log({_id,shopname,shopcost,shopimg})
   ShopModel.updateOne({_id},{$set:{shopname,shopcost,shopimg}}, function(err,result){
     res.send({code:0,data:result})
+  })
+})
+
+router.post('/getcustomer', function(req,res){
+  CustomerModel.find({},function(err,customers){
+    res.send({code:0,data:customers})
+  })
+})
+
+router.post('/getuser',function(req,res){
+  MangModel.find({},function(err,users){
+    res.send({code:0, data:users})
   })
 })
 
